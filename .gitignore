@@ -14,7 +14,7 @@ dist/
 downloads/
 eggs/
 .eggs/
-lib/
+src/bpmn_complexity/lib/
 lib64/
 parts/
 sdist/
