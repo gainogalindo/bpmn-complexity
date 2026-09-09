@@ -53,7 +53,7 @@ The Size metric is based on:
 
 ### Structuredness
 
-The Structuredness implementation is based on the implementation available in SplitMiner:
+The Structuredness implementation is based on the implementation available in Split Miner:
 
 https://github.com/nemo-91/bpmtk/blob/master/src/au/edu/qut/bpmn/metrics/ComplexityCalculator.java
 
@@ -75,15 +75,15 @@ http://www.promtools.org/prom6/downloads/example-logs.zip
 
 ## Generating the BPMN Files
 
-The BPMN diagrams used in the examples were generated from the Repair Example event log using **SplitMiner** and **SplitMiner 2.0**.
+The BPMN diagrams used in the examples were generated from the Repair Example event log using **Split Miner** and **Split Miner 2.0**.
 
-SplitMiner is available from the Apromore Research Lab:
+Split Miner 2.0 is available from the Apromore Research Lab:
 
 https://apromore.com/research-lab
 
-Java 8 is required to run the SplitMiner versions used in these examples.
+Java 8 is required to run the Split Miner versions used in these examples.
 
-### SplitMiner
+### Split Miner
 
 Example command in Windows PowerShell:
 
@@ -96,7 +96,7 @@ Example command in Windows PowerShell:
     .\repair_sm
 ```
 
-### SplitMiner 2.0
+### Split Miner 2.0
 
 Example command in Windows PowerShell:
 
@@ -154,4 +154,4 @@ For example, on Windows:
 JAVA_HOME=C:\Program Files\Java\jdk-21
 ```
 
-Note that the Java version required to run the SplitMiner examples is independent of the Java version used by `bpmn-complexity` through JPype.
+Note that the Java version required to run the Split Miner 2.0 examples is independent of the Java version used by `bpmn-complexity` through JPype.
