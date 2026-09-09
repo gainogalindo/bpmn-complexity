@@ -139,7 +139,7 @@ See **Table 3 on page 10**, particularly the results for the **R-Log**.
 The library requires:
 
 - Python
-- [PM4Py](https://pm4py.fit.fraunhofer.de/) for BPMN handling
+- [PM4Py](https://processintelligence.solutions/pm4py) for BPMN handling
 - [JPype](https://jpype.readthedocs.io/) for Python–Java integration
 - Java, required for Structuredness computation
 - The required `rpst.jar` is bundled with this library. Its source code is available in the [`rpst`](https://github.com/gainogalindo/rpst) repository
