@@ -59,7 +59,7 @@ https://github.com/nemo-91/bpmtk/blob/master/src/au/edu/qut/bpmn/metrics/Complex
 
 To compute Structuredness, the implementation requires the construction of a Refined Process Structure Tree (RPST).
 
-For this purpose, a standalone `rpst.jar` containing the required RPST functionality was created and is available at:
+For this purpose, a standalone `rpst.jar` containing the required RPST functionality is bundled with this library. The source code used to build the JAR is available at:
 
 https://github.com/gainogalindo/rpst
 
@@ -142,24 +142,18 @@ The library requires:
 - [PM4Py](https://pm4py.fit.fraunhofer.de/) for BPMN handling
 - [JPype](https://jpype.readthedocs.io/) for Python–Java integration
 - Java, required for Structuredness computation
-- The RPST JAR provided by the [`rpst`](https://github.com/gainogalindo/rpst) project
+- The required `rpst.jar` is bundled with this library. Its source code is available in the [`rpst`](https://github.com/gainogalindo/rpst) repository
 
 ### Java Configuration
 
 JPype must be able to locate a valid Java Virtual Machine (JVM).
 
-The Java installation can be made available through the `JAVA_HOME` environment variable, through the system `PATH`, or by explicitly providing the JVM path when starting JPype.
+JPype must be able to locate a valid Java Virtual Machine (JVM). The recommended approach is to configure the `JAVA_HOME` environment variable. Alternatively, the JVM path can be provided explicitly when starting JPype.
 
 For example, on Windows:
 
 ```text
 JAVA_HOME=C:\Program Files\Java\jdk-21
-```
-
-The `bin` directory may also be added to `PATH`:
-
-```text
-C:\Program Files\Java\jdk-21\bin
 ```
 
 Note that the Java version required to run the SplitMiner examples is independent of the Java version used by `bpmn-complexity` through JPype.
