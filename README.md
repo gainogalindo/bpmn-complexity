@@ -22,11 +22,11 @@ bpmn_diagram = pm4py.read_bpmn("model.bpmn")
 
 size = bpmn_complexity.compute_size(bpmn_diagram)
 cfc = bpmn_complexity.compute_cfc(bpmn_diagram)
-structuredness = bpmn_complexity.compute_structuredness(bpmn_diagram)
+struct = bpmn_complexity.compute_structuredness(bpmn_diagram)
 
 print(f"Size: {size}")
 print(f"CFC: {cfc}")
-print(f"Structuredness: {structuredness:.2f}")
+print(f"Structuredness: {struct['structuredness']:.2f}")
 ```
 
 Example output:
