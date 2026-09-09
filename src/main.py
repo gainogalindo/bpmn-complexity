@@ -28,15 +28,25 @@ def analyze_complexity(dir: str):
         size = bpmn_complexity.compute_size(bpmn_diagram)
         cfc = bpmn_complexity.compute_cfc(bpmn_diagram)
         struct = bpmn_complexity.compute_structuredness(bpmn_diagram)
-        struct_val = struct['structuredness']
+        # Same rounding of Java's implementation
+        struct_val = float(f"{struct['structuredness']:.3f}")
 
         # Print output
         print(f"Size: {size}, CFC: {cfc}, Struc.: {struct_val:.2f}")
+
+        # Used for test purposes
+        print_structuredness = False
+        if print_structuredness:
+            print(struct)
+        #endif
     #endfor
 #enddef
 
 
 if __name__ == "__main__":
     dir = 'bpmn'
+    analyze_complexity(dir)
+
+    dir = 'bpmn/exp-results/SM/default-models'
     analyze_complexity(dir)
 #endif
