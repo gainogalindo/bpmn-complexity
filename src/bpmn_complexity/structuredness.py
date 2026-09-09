@@ -35,39 +35,26 @@ def compute_structuredness(bpmn:BPMN):
     # Instantiate the Java multi-directed graph via JPype
     graph = MultiDirectedGraph()
 
-    # Iterate over the BPMN edges/flows and populate MultiDirectedGRaph
+    def _get_vertex(node):
+        node_id = str(node.get_id())
+
+        if node_id not in mapping:
+            vertex = Vertex(node_id)
+            mapping[node_id] = vertex
+            graph.addVertex(vertex)
+
+            if isinstance(node, BPMN.Gateway):
+                gates[node_id] = node
+            #endif
+        #endif
+
+        return mapping[node_id]
+    #enddef
+
+    # Iterate over the BPMN edges/flows and populate MultiDirectedGraph
     for flow in bpmn.get_flows():
-        source_node = flow.get_source()
-        target_node = flow.get_target()
-
-        source_id = str(source_node.get_id())
-        target_id = str(target_node.get_id())
-
-        # Retrieve or create the source vertex
-        if source_id not in mapping:
-            src = Vertex(source_id)
-            mapping[source_id] = src
-            graph.addVertex(src)
-
-            if isinstance(source_node, BPMN.Gateway):
-                gates[source_id] = source_node
-            #endif
-        else:
-            src = mapping[source_id]
-        #endif
-
-        # Retrieve or create the target vertex
-        if target_id not in mapping:
-            tgt = Vertex(target_id)
-            mapping[target_id] = tgt
-            graph.addVertex(tgt)
-
-            if isinstance(target_node, BPMN.Gateway):
-                gates[target_id] = target_node
-            #endif
-        else:
-            tgt = mapping[target_id]
-        #endif
+        src = _get_vertex(flow.get_source())
+        tgt = _get_vertex(flow.get_target())
 
         # Connect the vertices while preserving parallel edges
         graph.addEdge(src, tgt)
@@ -94,7 +81,7 @@ def compute_structuredness(bpmn:BPMN):
         structured = set()
 
         # analyze structure
-        count = True
+        count_trivial = True
         while to_analyze:
             parent_node, current_node = to_analyze.popleft()
 
@@ -109,14 +96,14 @@ def compute_structuredness(bpmn:BPMN):
                     entry_gate = gates.get(entry_name)
                     exit_gate = gates.get(exit_name)
 
-                    count = (
+                    count_trivial = (
                         entry_gate is not None and
                         exit_gate is not None and
                         type(entry_gate) is type(exit_gate)
                     )
 
                 except Exception:
-                    count = False
+                    count_trivial = False
                 #endtry
             #endif
 
@@ -133,7 +120,7 @@ def compute_structuredness(bpmn:BPMN):
 
                     # Trivial
                     case TCType.TRIVIAL:
-                        if count:
+                        if count_trivial:
                             child_entry = child_node.getEntry()
                             child_exit = child_node.getExit()
 
@@ -173,7 +160,7 @@ def compute_structuredness(bpmn:BPMN):
                 #endmatch
             #endfor
 
-            count = False
+            count_trivial = False
         #endwhile
 
         # Calculate the final Structuredness Score
