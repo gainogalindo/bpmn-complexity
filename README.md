@@ -1,6 +1,6 @@
 # bpmn-complexity
 
-A compact Python library for computing BPMN complexity metrics, integrated with [PM4Py](https://pm4py.fit.fraunhofer.de/).
+A compact Python library for computing BPMN complexity metrics, integrated with [PM4Py](https://processintelligence.solutions/pm4py).
 
 Currently implemented metrics:
 
