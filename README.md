@@ -53,7 +53,7 @@ The Size metric is based on:
 
 ### Structuredness
 
-The Structuredness implementation is based on the implementation available in Split Miner:
+The Structuredness computation is based on the implementation available in Split Miner:
 
 https://github.com/nemo-91/bpmtk/blob/master/src/au/edu/qut/bpmn/metrics/ComplexityCalculator.java
 
