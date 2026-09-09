@@ -9,6 +9,7 @@ import bpmn_complexity
 
 
 def analyze_complexity(dir: str):
+    # Scan for .bpmn files
     bpmn_files = glob.glob(os.path.join(dir, '*.bpmn'))
 
     if not bpmn_files:
@@ -16,10 +17,11 @@ def analyze_complexity(dir: str):
         return
     #endif
 
+    # Calculate complexity metrics for every BPMN diagram
     for file in bpmn_files:
         print(f"\nFile: {os.path.basename(file)}")
 
-        # Import BPMN diagram
+        # Read BPMN file using PM4Py
         bpmn_diagram = pm4py.read_bpmn(file)
 
         # Compute Complexity Metrics

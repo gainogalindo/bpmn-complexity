@@ -35,7 +35,7 @@ def compute_structuredness(bpmn:BPMN):
     # Instantiate the Java multi-directed graph via JPype
     graph = MultiDirectedGraph()
 
-    # Iterate over the BPMN edges/flows
+    # Iterate over the BPMN edges/flows and populate MultiDirectedGRaph
     for flow in bpmn.get_flows():
         source_node = flow.get_source()
         target_node = flow.get_target()
@@ -73,12 +73,14 @@ def compute_structuredness(bpmn:BPMN):
         graph.addEdge(src, tgt)
     #endfor
 
-    # Compute the RPST
+    # Compute the RPST from MultiDirectedGraph
     rpst = RPST(graph)
 
+    # Get RPST root
     root = rpst.getRoot()
+
+    # Handle empty graph and analyze RPST structure
     if not root:
-        # Handle empty graphs
         structuredness = 1.0 if graph.getEdges().isEmpty() else 0.0
         nodes_count = 0
         structured_size = 0
