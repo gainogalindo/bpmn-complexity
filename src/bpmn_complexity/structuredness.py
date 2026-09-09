@@ -175,7 +175,7 @@ def compute_structuredness(bpmn:BPMN):
     #endif
 
     # Format the result
-    result_json = {
+    result = {
         "structuredness": structuredness,
         "bpmn_nodes": nodes_count,
         "structured": structured_size,
@@ -185,5 +185,5 @@ def compute_structuredness(bpmn:BPMN):
         "bond": rpst.getRPSTNodes(TCType.BOND).size() if root else 0
     }
 
-    return result_json
+    return result
 #enddef
