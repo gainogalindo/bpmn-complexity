@@ -23,7 +23,7 @@ def compute_structuredness(bpmn:BPMN):
     #endif
 
     # Instantiate objects from JClass
-    MultiDirectedGraph = jpype.JClass('org.jbpt.graph.MultiDirectedGraph')
+    DirectedGraph = jpype.JClass('org.jbpt.graph.DirectedGraph')
     Vertex = jpype.JClass('org.jbpt.hypergraph.abs.Vertex')
     RPST = jpype.JClass('org.jbpt.algo.tree.rpst.RPST')
     TCType = jpype.JClass('org.jbpt.algo.tree.tctree.TCType')
@@ -33,7 +33,7 @@ def compute_structuredness(bpmn:BPMN):
     gates = {}
 
     # Instantiate the Java multi-directed graph via JPype
-    graph = MultiDirectedGraph()
+    graph = DirectedGraph()
 
     def _get_vertex(node):
         node_id = str(node.get_id())
