@@ -146,8 +146,6 @@ The library requires:
 
 ### Java Configuration
 
-JPype must be able to locate a valid Java Virtual Machine (JVM).
-
 JPype must be able to locate a valid Java Virtual Machine (JVM). The recommended approach is to configure the `JAVA_HOME` environment variable. Alternatively, the JVM path can be provided explicitly when starting JPype.
 
 For example, on Windows:
