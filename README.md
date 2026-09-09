@@ -1,6 +1,6 @@
 # bpmn-complexity
 
-A compact Python library for computing BPMN complexity metrics, integrated with [PM4Py](https://pm4py.fit.fraunhofer.de/).
+A compact Python library for computing BPMN complexity metrics, integrated with [PM4Py](https://processintelligence.solutions/pm4py).
 
 Currently implemented metrics:
 
@@ -53,7 +53,7 @@ The Size metric is based on:
 
 ### Structuredness
 
-The Structuredness implementation is based on the implementation available in Split Miner:
+The Structuredness computation is based on the implementation available in Split Miner:
 
 https://github.com/nemo-91/bpmtk/blob/master/src/au/edu/qut/bpmn/metrics/ComplexityCalculator.java
 
@@ -139,7 +139,7 @@ See **Table 3 on page 10**, particularly the results for the **R-Log**.
 The library requires:
 
 - Python
-- [PM4Py](https://pm4py.fit.fraunhofer.de/) for BPMN handling
+- [PM4Py](https://processintelligence.solutions/pm4py) for BPMN handling
 - [JPype](https://jpype.readthedocs.io/) for Python–Java integration
 - Java, required for Structuredness computation
 - The required `rpst.jar` is bundled with this library. Its source code is available in the [`rpst`](https://github.com/gainogalindo/rpst) repository
