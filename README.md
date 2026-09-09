@@ -138,7 +138,7 @@ See **Table 3 on page 10**, particularly the results for the **R-Log**.
 
 Additional BPMN models used for validation are available in `src/bpmn/exp-results/SM/default-models`. These models were obtained from the [reproducibility dataset](https://doi.org/10.6084/m9.figshare.11413794) of the paper [Optimization framework for DFG-based automated process discovery approaches](https://link.springer.com/article/10.1007/s10270-020-00846-x).
 
-The complexity results can be compared against the default Split Miner (`SM`) models reported in [Table 2](https://link.springer.com/article/10.1007/s10270-020-00846-x/tables/2):
+The complexity results can be compared against the default Split Miner (`SM`) models reported in [Table 2](https://link.springer.com/article/10.1007/s10270-020-00846-x/tables/2). Below are the results found using `bpmn-complexity`: 
 
 | Model | Size | CFC | Structuredness |
 |---|---:|---:|---:|
@@ -147,12 +147,12 @@ The complexity results can be compared against the default Split Miner (`SM`) mo
 | BPIC15_1f | 111 | 45 | 0.51 |
 | BPIC15_2f | 129 | 49 | 0.36 |
 | BPIC15_3f | 96 | 35 | 0.49 |
-| BPIC15_4f | 101 | 37 | 0.27 |
+| BPIC15_4f | 101 | 37 | **0.29** |
 | BPIC15_5f | 110 | 38 | 0.34 |
 | RTFMP | 22 | 17 | 0.46 |
 | SEPSIS | 32 | 23 | 0.94 |
 
-For `BPIC15_4f`, `bpmn-complexity` obtains a Structuredness value of `0.287129` (`0.29` when rounded to two decimal places), while Table 2 reports `0.27`. Size (`101`) and CFC (`37`) match exactly, suggesting that the Structuredness value reported in Table 2 may contain a typographical error.
+For `BPIC15_4f`, `bpmn-complexity` obtains a Structuredness value of `0.287129` (`0.29` when rounded to two decimal places), while [Table 2](https://link.springer.com/article/10.1007/s10270-020-00846-x/tables/2) reports `0.27`. Size (`101`) and CFC (`37`) match exactly, suggesting that the Structuredness value reported in this table may contain a typographical error.
 
 ## Requirements
 
